@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var axios = require('axios')
-var Casamentos = require("../controllers/student");
 const app = require('../app');
 
 var api = "http://clav-api.di.uminho.pt/v2/classes"
