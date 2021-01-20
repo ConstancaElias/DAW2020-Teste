@@ -39,25 +39,5 @@ router.get('/termosIndice', function(req, res){
     .catch(erro => res.render('error',{error:erro}))
 })
 
-router.get('/',function(req,res){
-  var codigo = req.params.codigo
-  var array = []
-  var nivel3 = 0
-  axios.get(api+'/'+codigo+'?token='+token)
-    .then(dados=> {
-      pai = dados.data.pai.codigo
-      if(dados.data.nivel == 1){
-        pai = 0
-      }
-      if(dados.data.nivel == 3){
-        nivel3 = 1
-      }
-      console.log(array)
-      res.render('classe',{codigo: codigo, classe: dados.data, arr: array, bool: nivel3, pai: pai})
-    })
-    .catch(erro => res.render('error',{error:erro}))
-})
-
-
 
 module.exports = router;
