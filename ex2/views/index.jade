@@ -1,0 +1,105 @@
+extends layout
+
+block content
+  if view == "initial"
+    p(class="text-center") Nesta página é possível consultar os termos de índice e as classes da CLAV
+    div
+      button(class="btn")
+        a(href="/classes") Classes
+      button(class="btn")
+        a(href="/termosIndice") Termos de Índice
+
+  if view == "classes"
+    div(class="table-responsive" style="margin:5%") 
+      table.table.table-striped
+        tr
+          th Codigo
+          th Título
+
+        each c in lista
+          tr
+            td
+              a(href="classes/c#{c.codigo}")= c.codigo
+            td= c.titulo
+
+    button(class="btn")
+      a(href="/") Página inicial
+
+  if view == "termosIndice"
+    div(class="table-responsive" style="margin:5%") 
+      table.table.table-striped
+        tr
+          th Termo
+          th ID Classe
+          th Título Classe
+
+        each t in lista
+          tr
+            td= t.termo
+            td
+              a(href="/classes/c#{t.idClasse}")= t.idClasse
+            td
+              a(href="/classes")= t.tituloClasse
+    
+    button(class="btn")
+      a(href="/") Página inicial
+
+  if view == "classe"
+    h3
+      b Classe #{classe.codigo}
+    div(class="container")
+      ul(class="list-group list-group-flush")
+        li(class="list-group-item") 
+          b Nível: 
+          span #{classe.nivel}
+        li(class="list-group-item") 
+          b Código: 
+          span #{classe.codigo}
+        li(class="list-group-item") 
+          b Título: 
+          span #{classe.titulo}
+        li(class="list-group-item") 
+          b Descrição: 
+          span #{classe.descricao}
+        li(class="list-group-item") 
+          b Status: 
+          span #{classe.status}
+    
+    if filhos.length > 0
+      div(class="container")
+        p 
+          b Descendentes:
+        div(class="table-responsive" style="margin:5%") 
+          table.table.table-striped
+            tr
+              th Código
+              th Título
+
+            each c in filhos
+              tr
+                td
+                  a(href="classes/c#{c.codigo}")= c.codigo
+                td= c.titulo
+
+    if nivel == 3
+      div(class="container")
+        p 
+          b Termos:
+        div(class="table-responsive" style="margin:5%") 
+          table.table.table-striped
+            tr
+              th Título
+
+            each c in termos
+              tr
+                td
+                  a(href="/termosIndice")= c.termo
+
+      
+    button(class="btn")
+      a(href="/") Página inicial
+    
+      
+
+          
+

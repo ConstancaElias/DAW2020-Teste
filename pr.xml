@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="pr.css"?>
+<pr>
+ <meta>
+     <key>DAW2021::Teste</key>
+     <title>Teste de DAW</title>
+     <bdate> 20.01.2021 </bdate>
+     <edate> 20.01.2021 </edate>
+     <supervisor url= "http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho </supervisor>
+ </meta>  
+ <team>
+     <member id ="pg42820">
+         <name>Constança Machado Aires Lobo Elias</name>
+         <email>pg42820@alunos.uminho.pt</email>
+         <url> "https://github.com/ConstancaElias" </url>
+     </member>
+ </team>
+ <abstract>
+     <p><b>Exercício 1</b>
+          1) Para corrigir erros de formato no ficheiro "batismos.json", comecei por acrescentar as aspas a todos os campos, pois estavam em falta.
+          Para isso usei a ferramenta "replace" do Visual Studio Code. Depois disso, acrescentei, à mão, algumas vírgulas que faltavam a separar os campos
+          assim como também algumas aspas que faltavam no campo "data" de alguns registo. Este processo foi rápido porque estes erros são logo detetados pelo Visual Studio Code.
+          
+          Para acrescentar os campos "id", "pai" e "mãe" crei um script em JS, "data_cleansing.js". Este script cria um novo ficheiro "batismos-fixed.js", que contém os registos com os novos campos adicionados.
+          Para criar um id, é feito um replace de '/' por '_' da string "title". Para criar os campos "pai" e "mãe", é feito um <i>match</i> do "title", procurando pela expressão regular correspondente a "Pai: < nome do pai >" e
+          "Mãe: < nome da mae >".
+          2) ----
+
+          3) Para fazer o import do dataset para a base de dados MongoDB foi executado o seguinte comando: mongoimport --d batismos --c batismos --jsonArray batismos-fixed.json
+
+          4) O servidor da api ficou a correr na porta 3001 e para correr o mesmo basta executar o comando "npm start".
+
+    <p><b>Exercício 2 - Aquecimento</b>
+            1) Na descendência da classe 900 encontram-se 21 processos: 900.20.001, 900.20.002, 900.20.200, 900.20.201, 900.20.400, 900.20.401, 900.20.402, 900.20.600, 900.20.601, 900.20.602, 900.20.603, 900.20.604, 900.20.605, 
+            900.10.001, 900.10.002, 900.10.500. 900.10.501, 900.10.502, 900.10.503, 900.10.504, 900.10.505
+            2) Estão catalogadas 641 entidades.
+            3) Na descendência da classe 900.10 encontram-se 8 processos.
+            4) Existem 5 processos relacionados com a classe 900.10.505
+    
+    </p>
+    <p><b>Exercício 2 - App</b>
+            A app ficou a correr na porta 3003 e para correr a mesma é necessário executar o comando "npm start".     
+      </p>  
+     
+ </abstract>
+    <deliverables>
+        <link url= ""> ex1 </link>
+        <link url= ""> ex2</link>
+
+ </deliverables>
+</pr>
